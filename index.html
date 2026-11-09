@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birleşik PWA - ALŞ08 & ALŞ09</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- ANA EKRAN (LAUNCHER) -->
+        <div id="home-view" class="view active">
+            <header>
+                <h1>PWA Portal</h1>
+                <p>ALŞ08 ve ALŞ09 Entegre Kontrol Merkezi</p>
+            </header>
+            
+            <main class="menu-grid">
+                <button class="card-btn" onclick="switchView('als08-view')">
+                    <h2>ALŞ08 Modülü</h2>
+                    <p>Dosya/Veri Yönetimi ve Ön İşlemler</p>
+                </button>
+
+
+
+                <button class="card-btn" onclick="switchView('als09-view')">
+                    <h2>ALŞ09 Modülü</h2>
+                    <p>WebRTC & QR ile Dosya Transferi</p>
+                </button>
+
+                <button class="card-btn highlight" onclick="startIntegratedWorkflow()">
+                    <h2>🚀 Ardışık Akış</h2>
+                    <p>Hocadan Al -> Bilgisayara Aktar (Otomatik QR)</p>
+                </button>
+            </main>
+        </div>
+
+        <!-- ALŞ08 GÖRÜNÜMÜ -->
+        <div id="als08-view" class="view">
+            <nav class="sub-nav">
+                <button onclick="switchView('home-view')">🏠 Ana Ekrana Dön</button>
+            </nav>
+            <h2>ALŞ08 Uygulaması</h2>
+            <div id="als08-content">
+                <!-- ALŞ08 içeriği buraya yüklenecek -->
+            </div>
+        </div>
+
+        <!-- ALŞ09 GÖRÜNÜMÜ -->
+        <div id="als09-view" class="view">
+            <nav class="sub-nav">
+                <button onclick="switchView('home-view')">🏠 Ana Ekrana Dön</button>
+            </nav>
+                            <!-- jsQR Kütüphanesi CDN -->
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+
+<div id="als09-view" class="view">
+    <nav class="sub-nav">
+        <button onclick="switchView('home-view')">🏠 Ana Ekrana Dön</button>
+    </nav>
+    <h2>ALŞ09 - QR Kod ile Dosya Alımı</h2>
+    
+    <div class="scanner-box" style="text-align: center;">
+        <video id="qr-video" playsinline style="width: 100%; max-width: 400px; border-radius: 8px; background: #000;"></video>
+        <canvas id="qr-canvas" style="display: none;"></canvas>
+        <div id="scan-result" style="margin-top: 15px; font-weight: bold; color: #1a73e8;">Kamera bekleniyor...</div>
+        <button id="start-camera-btn" onclick="startQRScanner()" style="margin-top: 10px; padding: 10px 20px; background: #1a73e8; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Kamerayı Başlat</button>
+    </div>
+</div>
+            <h2>ALŞ09 Uygulaması (WebRTC & QR)</h2>
+            <div id="als09-content">
+                <!-- Kamera ve WebRTC peer bağlantı arayüzü -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/als08.js"></script>
+    <script src="js/als09.js"></script>
+</body>
+</html>

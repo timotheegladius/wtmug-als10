@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    #app-container {
+        min-height: 80vh;
+        border-radius: 12px;
+    }
+}
+
+.view {
+    display: none;
+    padding: 20px;
+    flex-direction: column;
+    flex: 1;
+}
+
+.view.active {
+    display: flex;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #1a73e8;
+    font-size: 24px;
+}
+
+.menu-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-btn {
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.card-btn:hover {
+    border-color: #1a73e8;
+    background: #f8fbff;
+}
+
+.card-btn.highlight {
+    background: #e8f0fe;
+    border-color: #1a73e8;
+}
+
+.card-btn h2 {
+    font-size: 18px;
+    color: #1a73e8;
+    margin-bottom: 6px;
+}
+
+.card-btn p {
+    font-size: 14px;
+    color: #555;
+}
+
+.sub-nav {
+    margin-bottom: 20px;
+}
+
+.sub-nav button {
+    background: #f1f3f4;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
